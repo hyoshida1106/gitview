@@ -1,0 +1,12 @@
+.dialog-pane .check-box > .box {
+     -fx-background-color: white; /* -background-color;  */
+     -fx-border-color:grey;
+     -fx-border-radius:2px;
+     -fx-padding: 0.12em 0.12em 0.18em 0.18em;
+ }
+.dialog-pane .check-box > .box > .mark {
+     -fx-padding: 0.3em 0.3em 0.36em 0.36em;
+ }
+.dialog-pane  .check-box:selected > .box > .mark {
+     -fx-background-color: #606060;
+ }

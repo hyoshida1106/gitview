@@ -1,0 +1,14 @@
+.WorkTreeMessagePane {
+    -fx-padding: 0;
+}
+.WorkTreeMessageBox {
+    -fx-padding: 4 12 4 12;
+    -fx-hgap: 8;
+    -fx-alignment: baseline-left;
+    -fx-background-color: beige;
+    -fx-background-radius: 6;
+    -fx-border-style: solid;
+    -fx-border-color: green;
+    -fx-border-width: 2;
+    -fx-border-radius: 6;
+}

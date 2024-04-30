@@ -1,0 +1,16 @@
+CREATE TABLE SystemConfigProps (
+    editor TEXT,
+    max_commits INTEGER NOT NULL
+);
+
+INSERT INTO SystemConfigProps (editor, max_commits)
+    VALUES(NULL, 3000);
+
+select:
+SELECT * FROM SystemConfigProps;
+
+updateEditor:
+UPDATE SystemConfigProps SET editor = ?;
+
+updateMaxCommits:
+UPDATE SystemConfigProps SET max_commits = ?;

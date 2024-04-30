@@ -1,0 +1,53 @@
+.CommitDialog {
+    -fx-hgap: 4;
+    -fx-vgap: 4;
+}
+
+.PathColumn,
+.TypeColumn {
+    -fx-alignment: baseline-center;
+}
+
+CommitFileTable,
+.CommitMessageText {
+    -fx-border-width: 1;
+    -fx-border-color: white;
+}
+
+.CommitFileTable {
+    -fx-selection-bar: -selected-color;
+    -fx-selection-bar-non-focused: -selected-color;
+}
+
+.table-row-cell:odd:filled {
+    -fx-control-inner-background: rgb(245, 245, 245);
+}
+.table-row-cell:even:filled {
+    -fx-control-inner-background: white;
+}
+
+.TypeColumn {
+    -fx-padding: 2 0 0 4;
+    -fx-alignment: baseline-left;
+}
+.TypeColumn .item-icon {
+    -fx-font-size: 1.3em;
+}
+.TypeColumn:selected .item-icon {
+    -fx-text-fill: white;
+}
+.PathColumn {
+    -fx-alignment: baseline-left;
+}
+
+.table-row-cell:selected .item-icon {
+    -fx-text-fill: white;
+}
+/*
+.CommitMessageText .content {
+    -fx-padding: 8 10 8 10;
+    -fx-background-radius: 5;
+    -fx-background-insets: 1;
+    -fx-background-color: white;
+}
+*/

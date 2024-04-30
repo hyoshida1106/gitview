@@ -1,0 +1,17 @@
+.WorkTreeFileListPane {
+    -fx-padding: 1;
+}
+.FileListPane {
+    -fx-padding: 0;
+}
+.TitleLabel {
+    -fx-alignment: center;
+}
+
+.StagedFilePane, .ModifiedFilePane {
+    -fx-border-width: 1;
+    -fx-border-color: -split-pane-color;
+}
+.CommandPane {
+    -fx-padding: 8 0 0 0;
+}

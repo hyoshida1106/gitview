@@ -1,0 +1,15 @@
+.tree-view {
+    -fx-background-color: -background-color;
+    -fx-padding: 0;
+}
+.tree-cell {
+    -fx-padding: 4 0 0 0;
+}
+.tree-icon {
+    -fx-font-family: "remixicon";
+    -fx-text-fill: -foreground-color;
+    -fx-font-size: 0.85em;
+}
+.CurrentBranch {
+    -fx-font-weight: 900;
+}

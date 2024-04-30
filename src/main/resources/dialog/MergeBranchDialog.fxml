@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+   <Label fx:id="srcBranchLabel" text="Label">
+      <VBox.margin>
+         <Insets top="4.0" />
+      </VBox.margin>
+   </Label>
+    <Label fx:id="dstBranchLabel" text="Label">
+        <VBox.margin>
+            <Insets top="4.0" bottom="12.0" />
+        </VBox.margin>
+    </Label>
+    <Label text="%Title.Message">
+      <VBox.margin>
+         <Insets bottom="4.0" />
+      </VBox.margin></Label>
+    <TextArea fx:id="messageText" prefHeight="100" prefWidth="400" />
+</VBox>

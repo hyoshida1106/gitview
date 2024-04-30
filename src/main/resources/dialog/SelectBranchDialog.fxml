@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx"
+      prefHeight="350.0" prefWidth="500.0" spacing="8" >
+  <Label fx:id="selectBranchMessage" />
+  <TableView fx:id="selectBranchTable">
+    <columns>
+      <TableColumn fx:id="remoteBranchColumn" styleClass="RemoteBranch" editable="false" reorderable="false"
+                   minWidth="50" prefWidth="200.0" maxWidth="450.0" text="%Term.RemoteBranch" />
+      <TableColumn fx:id="localBranchColumn" styleClass="LocalBranch" editable="false" reorderable="false"
+                   text="%Term.LocalBranch" />
+    </columns>
+  </TableView>
+</VBox>

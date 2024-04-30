@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import org.controlsfx.control.MaskerPane?>
+<StackPane xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" >
+    <BorderPane>
+        <top>
+            <AnchorPane fx:id="menuBar"/>
+        </top>
+        <center>
+            <SplitPane fx:id="mainSplit" dividerPositions="0.2, 0.5" BorderPane.alignment="CENTER">
+                <AnchorPane fx:id="branchList" SplitPane.resizableWithParent="false"/>
+                <AnchorPane fx:id="commitList" SplitPane.resizableWithParent="false"/>
+                <AnchorPane fx:id="commitInfo"/>
+            </SplitPane>
+        </center>
+        <bottom>
+            <AnchorPane fx:id="statusBar"/>
+        </bottom>
+    </BorderPane>
+    <MaskerPane fx:id="masker" visible="false"/>
+</StackPane>

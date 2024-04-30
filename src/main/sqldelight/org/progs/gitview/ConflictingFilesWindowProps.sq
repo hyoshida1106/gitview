@@ -1,0 +1,12 @@
+CREATE TABLE ConflictingFilesWindowProps (
+    split  REAL NOT NULL
+);
+
+INSERT INTO ConflictingFilesWindowProps (split)
+    VALUES(0.4);
+
+selectAll:
+SELECT * FROM ConflictingFilesWindowProps;
+
+update:
+UPDATE ConflictingFilesWindowProps SET (split) = (?);

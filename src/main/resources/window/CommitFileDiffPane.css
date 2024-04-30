@@ -1,0 +1,26 @@
+
+.CommitFileDiffPane {
+    -fx-font-family: "Source Han Code JP R";
+    -fx-background-color: transparent;
+    -fx-font-size: 0.9em;
+}
+.table-row-cell {
+    -fx-background-color: white;
+}
+
+.HeaderLine {
+    -fx-background-color: rgb(240, 240, 240);
+    -fx-border-color: -background-color;
+    -fx-border-width: 2 0 2 0;
+}
+.AddedLine {
+    -fx-background-color: rgb(255, 180, 180);
+}
+.DeletedLine {
+    -fx-background-color: rgb(180, 180, 255);
+}
+
+.column-header,
+.column-header-background .filler {
+    -fx-pref-height: 2;
+}

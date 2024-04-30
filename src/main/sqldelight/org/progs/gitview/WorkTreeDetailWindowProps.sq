@@ -1,0 +1,12 @@
+CREATE TABLE WorkTreeDetailWindowProps (
+    split  REAL NOT NULL
+);
+
+INSERT INTO WorkTreeDetailWindowProps (split)
+    VALUES(0.4);
+
+selectAll:
+SELECT * FROM WorkTreeDetailWindowProps;
+
+update:
+UPDATE WorkTreeDetailWindowProps SET (split) = (?);

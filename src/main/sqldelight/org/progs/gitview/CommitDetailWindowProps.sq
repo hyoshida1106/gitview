@@ -1,0 +1,12 @@
+CREATE TABLE CommitDetailWindowProps (
+    split  REAL NOT NULL
+);
+
+INSERT INTO CommitDetailWindowProps (split)
+    VALUES(0.4);
+
+selectAll:
+SELECT * FROM CommitDetailWindowProps;
+
+update:
+UPDATE CommitDetailWindowProps SET (split) = (?);

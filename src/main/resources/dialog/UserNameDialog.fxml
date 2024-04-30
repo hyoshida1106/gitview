@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+          fx:id="pane" hgap="20" vgap="20" prefHeight="120.0" prefWidth="400.0">
+    <Label text="%Title.UserName" GridPane.halignment="RIGHT"
+           GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="1" />
+    <Label text="%Title.MailAddress" GridPane.halignment="RIGHT"
+           GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="1" />
+    <TextField fx:id="userNameText" prefColumnCount="16"
+           GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="1" />
+    <TextField fx:id="mailAddrText" prefColumnCount="16"
+               GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.columnSpan="1" />
+</GridPane>

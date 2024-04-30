@@ -1,0 +1,16 @@
+CREATE TABLE LastOpenedFiles (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    file_name TEXT NOT NULL
+);
+
+insert:
+INSERT INTO LastOpenedFiles(file_name) VALUES(?);
+
+select:
+SELECT * FROM LastOpenedFiles ORDER BY id DESC LIMIT ? ;
+
+remove:
+DELETE FROM LastOpenedFiles WHERE file_name = ?;
+
+find:
+SELECT COUNT(*) FROM LastOpenedFiles WHERE file_name = ?;

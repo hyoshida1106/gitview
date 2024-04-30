@@ -1,0 +1,165 @@
+/* @font-faceは先頭で定義しなければならない！ */
+@font-face {
+    src: url("/fonts/remixicon.ttf");
+}
+@font-face {
+    src: url("/fonts/SourceHanCodeJPR.ttf");
+}
+
+* {
+    -foreground-color: rgb( 10, 10, 10);
+    -background-color: rgba(200,200,200, 1.0);
+    -split-pane-color: rgb(220,220,220);
+    -selected-color:   rgb(  0,170,220);
+    -icon-color: green;
+}
+.root {
+    -fx-base: rgba(200, 200, 200, 0.5);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: -background-color;
+}
+
+/* Scroll Bar */
+.scroll-bar {
+    -fx-background-color: -split-pane-color;
+    -fx-padding: 0;
+}
+.scroll-bar:vertical {
+    -fx-pref-width: 12;
+}
+.scroll-bar:horizontal {
+    -fx-pref-height: 12;
+}
+.scroll-bar .track {
+    -fx-background-color: -split-pane-color;
+    -fx-background-insets: 1;
+}
+.scroll-bar .thumb {
+    -fx-background-color: rgb(150,150,150);
+    -fx-background-radius: 0;
+    -fx-background-insets: 1;
+}
+.scroll-bar .decrement-button,
+.scroll-bar .increment-button,
+.scroll-bar .decrement-arrow,
+.scroll-bar .increment-arrow {
+    -fx-padding: 0;
+}
+
+/* Split Divider */
+.split-pane-divider {
+    -fx-border-color: -background-color;
+    -fx-background-color: -split-pane-color;
+    -fx-padding: 1;
+}
+
+/* Table View */
+.table-view {
+}
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-background-color: -background-color;
+    -fx-border-color: white;
+}
+.table-row-cell:empty {
+    -fx-background-color: -split-pane-color;
+}
+.table-cell {
+    -fx-pref-height: 14;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+}
+
+/* Icon */
+.item-icon {
+    -fx-font-family: "remixicon";
+    -fx-text-fill: -selected-color;
+}
+
+/* Commit/Branch Label */
+.CommitLabel {
+    -fx-alignment: baseline-left;
+    -fx-font-size: 0.85em;
+    -fx-font-weight: bold;
+    -fx-padding: 0 4 0 2;
+    -fx-background-insets: 0 2 0 0;
+    -fx-border-style: solid;
+    -fx-border-color: rgb(80,80,80);
+    -fx-border-width: 1;
+    -fx-border-radius: 2;
+    -fx-border-insets: 0 2 0 0;
+    -fx-spacing: 1;
+}
+.CommitLabel .item-icon {
+    -fx-text-fill: -foreground-color;
+    -fx-font-size: 0.85em;
+}
+.LocalBranchLabel {
+    -fx-background-color: rgb(117, 207, 77);
+}
+.RemoteBranchLabel {
+    -fx-background-color: rgb(206, 141, 128);
+}
+.TagLabel {
+    -fx-background-color: rgb(238, 238, 148);
+}
+
+/* Menu */
+.menu, .context-menu , .menu-item {
+    -fx-background-color: -background-color;
+}
+.menu-item .item-icon {
+    -fx-text-fill: grey;
+}
+.menu-item:focused {
+    -fx-background-color: -selected-color;
+}
+.menu-item:focused .item-icon {
+    -fx-text-fill: -fx-selection-bar-text;
+}
+.context-menu > * > .separator > .line {
+    -fx-border-color: rgb(190,190,190);
+    -fx-border-insets: 0;
+}
+
+/* Button */
+.button {
+    -fx-font-weight: bold;
+    -fx-background-color: -background-color;
+    -fx-effect: dropshadow( three-pass-box , rgba(20,20,20,0.6), 3, 0.0, 0, 1);
+}
+.button .item-icon {
+    -fx-font-size: 1.2em;
+    -fx-background-color: transparent;
+}
+
+/* Text Area */
+.text-area .content {
+    -fx-padding: 4;
+    -fx-background-radius: 4;
+    -fx-background-insets: 1;
+    -fx-background-color: white;
+}
+
+/* Check Box */
+.check-box > .box {
+    -fx-background-color: white; /* -background-color;  */
+    -fx-border-color:grey;
+    -fx-border-radius:2px;
+    -fx-padding: 0.12em 0.12em 0.18em 0.18em;
+}
+.check-box > .box > .mark {
+    -fx-padding: 0.3em 0.3em 0.36em 0.36em;
+}
+.check-box:selected > .box > .mark {
+    -fx-background-color: #606060;
+}
+
+/* Radio Button */
+.radio-button:selected .radio {
+    -fx-border-color: #606060;
+    -fx-border-radius: 130px;
+}
+.radio-button:selected .radio .dot {
+    -fx-background-color: #606060;
+}

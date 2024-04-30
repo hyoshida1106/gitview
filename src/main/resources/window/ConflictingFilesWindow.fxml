@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.*?>
+<SplitPane fx:id="conflictingFilesSplit" dividerPositions="0.5" orientation="VERTICAL"
+           xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.2"
+           AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0"
+           AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" >
+  <AnchorPane fx:id="conflictingFileTablePane" minHeight="180.0"/>
+  <AnchorPane fx:id="conflictingFileListPane"/>
+</SplitPane>

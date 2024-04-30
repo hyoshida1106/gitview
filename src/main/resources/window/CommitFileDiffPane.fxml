@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TableView fx:id="commitFileDiffTable" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+           AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"
+           xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+    <columns>
+        <TableColumn fx:id="line1Column" editable="false" maxWidth="-Infinity" minWidth="48.0" prefWidth="48.0"
+                     reorderable="false" resizable="false" sortable="false" styleClass="line-column" />
+        <TableColumn fx:id="line2Column" editable="false" maxWidth="-Infinity" minWidth="48.0" prefWidth="48.0"
+                     reorderable="false" resizable="false" sortable="false" styleClass="line-column" />
+        <TableColumn fx:id="textColumn" editable="false" reorderable="false" sortable="false" styleClass="text-column" />
+    </columns>
+</TableView>

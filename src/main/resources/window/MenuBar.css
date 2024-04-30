@@ -1,0 +1,6 @@
+
+.MenuBar {
+    -fx-background-color: -background-color;
+    -fx-border-color: rgb(150,150,150);
+    -fx-border-width: 0 0 1 0;
+}

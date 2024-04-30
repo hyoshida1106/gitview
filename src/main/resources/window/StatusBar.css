@@ -1,0 +1,6 @@
+.StatusBar {
+    -fx-background-color: -background-color;
+    -fx-padding: 3 10;
+    -fx-border-color: rgb(150,150,150);
+    -fx-border-width: 1 0 0 0;
+}

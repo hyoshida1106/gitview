@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TableView fx:id="commitListTable" styleClass="CommitListTable" minWidth="200.0"
+           xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.2"
+           AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0"
+           AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" >
+  <columns>
+    <TableColumn fx:id="treeColumn" editable="false" sortable="false" reorderable="false"/>
+    <TableColumn fx:id="infoColumn" editable="false" sortable="false" reorderable="false" resizable="false" />
+  </columns>
+</TableView>

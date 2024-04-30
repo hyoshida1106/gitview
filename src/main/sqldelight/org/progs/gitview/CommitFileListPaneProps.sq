@@ -1,0 +1,12 @@
+CREATE TABLE CommitFileListPaneProps (
+    split  REAL NOT NULL
+);
+
+INSERT INTO CommitFileListPaneProps (split)
+    VALUES(0.4);
+
+selectAll:
+SELECT * FROM CommitFileListPaneProps;
+
+update:
+UPDATE CommitFileListPaneProps SET (split) = (?);

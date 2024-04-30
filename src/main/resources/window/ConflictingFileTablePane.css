@@ -1,0 +1,46 @@
+.MergeControlPane,
+.CherryPickControlPane {
+    -fx-background-color: -background-color;
+    -fx-padding: 10 8 0 8;
+}
+.FileListPane {
+    -fx-background-color: -background-color;
+    -fx-padding: 10 8 8 8;
+}
+
+.table-view {
+    -fx-background-color: -split-pane-color;
+}
+.table-row-cell:odd:filled {
+    -fx-control-inner-background: rgb(245, 245, 245);
+}
+.table-row-cell:even:filled {
+    -fx-control-inner-background: white;
+    -fx-alignment: baseline-center;
+}
+
+.icon-button {
+    -fx-min-width: 20;
+    -fx-pref-width: 20;
+    -fx-min-height: 15;
+    -fx-pref-height: 15;
+    -fx-background-color: -split-pane-color;
+    -fx-padding: 0;
+}
+.icon-button .item-icon {
+    -fx-font-size: 0.9em;
+    -fx-text-fill: -foreground-color;
+}
+.PathColumn {
+    -fx-alignment: baseline-left;
+}
+.TypeColumn {
+    -fx-alignment: baseline-center;
+}
+.ControlColumn {
+    -fx-alignment: baseline-center;
+}
+.ControlColumn .hbox {
+    -fx-alignment: center;
+    -fx-spacing: 4;
+}

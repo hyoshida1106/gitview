@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+      AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" >
+    <AnchorPane fx:id="mergeControlPane" />
+    <AnchorPane fx:id="cherryPickControlPane" />
+    <HBox fx:id="fileListPane" styleClass="FileListPane" spacing="8" VBox.vgrow="ALWAYS">
+        <AnchorPane fx:id="stagedFilesPane" styleClass="StagedFilePane" HBox.hgrow="ALWAYS">
+            <AnchorPane fx:id="stagedFilesList" styleClass="StagedFileList"
+                        AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                        AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        </AnchorPane>
+        <BorderPane fx:id="commandPane" styleClass="CommandPane"
+                    HBox.hgrow="NEVER" maxWidth="120" minWidth="120">
+            <center>
+                <VBox fx:id="commandBox"
+                      AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" spacing="10" alignment="CENTER">
+                </VBox>
+            </center>
+        </BorderPane>
+        <AnchorPane fx:id="modifiedFilesPane" styleClass="ModifiedFilePane" HBox.hgrow="ALWAYS">
+            <AnchorPane fx:id="modifiedFilesList" styleClass="ModifiedFileList"
+                        AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                        AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        </AnchorPane>
+    </HBox>
+</VBox>

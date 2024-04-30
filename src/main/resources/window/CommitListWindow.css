@@ -1,0 +1,53 @@
+/* テーブル全般 */
+.CommitListTable {
+    -fx-background-color: -background-color;
+    -fx-selection-bar: -selected-color;
+    -fx-selection-bar-non-focused: -selected-color;
+}
+.column-header,
+.column-header-background .filler {
+    -fx-pref-height: 14;
+}
+.table-row-cell:odd:filled {
+    -fx-control-inner-background: rgb(210, 220, 255);
+}
+.table-row-cell:even:filled {
+    -fx-control-inner-background: white;
+}
+
+/* ヘッダ */
+.header-row {
+    -fx-background-color: #ddeedd;
+}
+
+/* WorkTree行 */
+.WorkingTreeRow {
+    -fx-background-color: beige;
+    -fx-border-color: green;
+    -fx-border-width:  2;
+    -fx-border-radius: 6;
+}
+.WorkingTreeRow:selected {
+    -fx-background-color:  -selected-color;
+}
+.WorkingTreeRow:conflict {
+    -fx-border-color: orange;
+}
+.WorkingTreeCell {
+    -fx-padding: 2 0 2 8;
+}
+
+/* Commit行 */
+.CommitInfoRow {
+}
+.CommitInfoCell {
+    -fx-padding: 2 0 2 8;
+}
+.commit-date {
+    -fx-font-weight: bold;
+    -fx-padding: 0 0.6em 0 0;
+}
+.header-commit .commit-message {
+    -fx-font-weight: 900;
+    -fx-underline: true;
+}

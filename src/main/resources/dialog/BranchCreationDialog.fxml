@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane hgap="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" vgap="16.0"
+          xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+    <columnConstraints>
+        <ColumnConstraints hgrow="ALWAYS" />
+        <ColumnConstraints hgrow="ALWAYS" />
+    </columnConstraints>
+    <Label text="%Title.BranchName" GridPane.halignment="RIGHT">
+      <GridPane.margin>
+         <Insets top="8.0" />
+      </GridPane.margin></Label>
+    <TextField fx:id="branchName" prefColumnCount="20" GridPane.columnIndex="1">
+      <GridPane.margin>
+         <Insets top="8.0" />
+      </GridPane.margin></TextField>
+    <CheckBox fx:id="checkout" text="%CreateBranchByNameDialog.CheckoutBranch" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+   </rowConstraints>
+</GridPane>

@@ -1,0 +1,29 @@
+
+.ConflictingFileListPane {
+    -fx-font-family: "Source Han Code JP R";
+    -fx-background-color: transparent;
+    -fx-font-size: 0.9em;
+}
+.table-row-cell {
+    -fx-background-color: white;
+}
+
+.line-column {
+    -fx-alignment: baseline-right;
+    -fx-padding: 0 4 0 0;
+}
+.text-column {
+    -fx-alignment: baseline-left;
+    -fx-padding: 0 0 0 4;
+}
+.Theirs {
+    -fx-background-color: rgb(180, 180, 255);
+}
+.Mine {
+    -fx-background-color: rgb(255, 180, 180);
+}
+
+.column-header,
+.column-header-background .filler {
+    -fx-pref-height: 14;
+}

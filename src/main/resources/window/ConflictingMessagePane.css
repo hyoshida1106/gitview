@@ -1,0 +1,13 @@
+.ConflictingMessagePane {
+    -fx-padding: 0;
+}
+.ConflictingMessageBox {
+    -fx-padding: 4 12 4 12;
+    -fx-alignment: baseline-left;
+    -fx-background-color: beige;
+    -fx-background-radius: 6;
+    -fx-border-style: solid;
+    -fx-border-color: orange;
+    -fx-border-width: 2;
+    -fx-border-radius: 6;
+}

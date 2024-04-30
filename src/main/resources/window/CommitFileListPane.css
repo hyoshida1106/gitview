@@ -1,0 +1,40 @@
+.table-view {
+    -fx-background-color: -background-color;
+    -fx-selection-bar: -selected-color;
+    -fx-selection-bar-non-focused: -selected-color;
+    -fx-padding: 1;
+}
+.table-row-cell:odd:filled {
+    -fx-control-inner-background: rgb(245, 245, 245);
+}
+.table-row-cell:even:filled {
+    -fx-control-inner-background: white;
+    -fx-alignment: baseline-center;
+}
+.commit-type {
+    -fx-spacing: 1;
+    -fx-alignment: baseline-center;
+}
+.table-column {
+    -fx-alignment: top-left;
+}
+.table-row-cell .item-icon {
+    -fx-font-size: 1.3em;
+}
+.table-row-cell:selected .item-icon {
+    -fx-text-fill: white;
+}
+.LabelList {
+    -fx-padding: 3 2 6 0;
+}
+.ItemList {
+    -fx-padding: 3 10 0 10;
+}
+/*
+.Add    .item-icon { -fx-text-fill: orange; }
+.COPY   .item-icon { -fx-text-fill: orange; }
+.Delete .item-icon { -fx-text-fill: orange; }
+.Modify .item-icon { -fx-text-fill: orange; }
+.Rename .item-icon { -fx-text-fill: orange; }
+*/
+

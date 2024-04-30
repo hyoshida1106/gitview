@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="conflictingFileTablePane" styleClass="FileTablePane"
+            xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0"
+            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" >
+    <AnchorPane fx:id="mergeControlPane" />
+    <AnchorPane fx:id="cherryPickControlPane" />
+    <TableView fx:id="conflictingFileTable">
+        <columns>
+            <TableColumn fx:id="typeColumn" styleClass="TypeColumn" editable="false" reorderable="false" text="%Term.FileType"
+                         minWidth="150" />
+            <TableColumn fx:id="pathColumn" styleClass="PathColumn" editable="false" reorderable="false" text="%Term.FilePath"/>
+            <TableColumn fx:id="controlColumn" styleClass="ControlColumn" editable="false" sortable="false"
+                         reorderable="false" resizable="false"/>
+        </columns>
+    </TableView>
+</VBox>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+          fx:id="pane" prefHeight="150.0" prefWidth="640.0" hgap="5" vgap="20">
+        <Label text="%CloneRepositoryDialog.RemotePath" GridPane.halignment="RIGHT"
+               GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="1"/>
+        <Label text="%CloneRepositoryDialog.LocalPath" GridPane.halignment="RIGHT"
+               GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="1"/>
+        <Label text="%CloneRepositoryDialog.Bare" GridPane.halignment="RIGHT"
+               GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="1"/>
+        <TextField fx:id="remoteRepositoryPath" prefColumnCount="32"
+                   GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.columnSpan="1"/>
+        <TextField fx:id="localDirectoryPath" prefColumnCount="32"
+                   GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.columnSpan="1"/>
+        <Button fx:id="remoteRepositorySel" text="…"
+                GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.columnSpan="1"/>
+        <Button fx:id="localDirectorySel" text="…"
+                GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.columnSpan="1"/>
+        <CheckBox fx:id="bareRepository"
+                  GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="2"/>
+</GridPane>

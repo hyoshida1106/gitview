@@ -1,0 +1,12 @@
+.AboutDialogVbox {
+    -fx-spacing: 8;
+}
+.TitleImage {
+    -fx-effect: dropshadow( three-pass-box , rgba(20,20,20,0.6), 3, 0.0, 0, 1);
+}
+.SoftwareInformation {
+    -fx-spacing: 8;
+}
+.SoftwareNode {
+    -fx-font-size: 1.5em;
+}

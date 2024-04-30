@@ -1,0 +1,9 @@
+.SelectBranchDialog {
+    -fx-padding: 16;
+}
+.table-view .column-header .label{
+	-fx-font-weight: bold;
+}
+.DisabledLine .table-cell {
+    -fx-text-fill: lightgray;
+}

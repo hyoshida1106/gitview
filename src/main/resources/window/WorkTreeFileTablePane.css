@@ -1,0 +1,51 @@
+.FileListPane {
+    -fx-background-color: -background-color;
+    -fx-border-color: white;
+    -fx-border-width: 1;
+}
+.FileTable {
+    -fx-background-color: -split-pane-color;
+    -fx-selection-bar: -selected-color;
+    -fx-selection-bar-non-focused: -selected-color;
+}
+
+.ActionButton {
+    -fx-background-color: -background-color;
+/*    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );  */
+}
+.ButtonPane {
+    -fx-padding: 4 8 8 8;
+}
+
+.table-row-cell:odd:filled {
+    -fx-control-inner-background: rgb(245, 245, 245);
+}
+.table-row-cell:even:filled {
+    -fx-control-inner-background: white;
+}
+
+.TypeColumn {
+    -fx-padding: 2 0 0 4;
+    -fx-alignment: baseline-left;
+}
+.TypeColumn .item-icon {
+    -fx-font-size: 1.3em;
+}
+.TypeColumn:selected .item-icon {
+    -fx-text-fill: white;
+}
+.PathColumn {
+    -fx-alignment: baseline-left;
+}
+
+.table-row-cell:selected .item-icon {
+    -fx-text-fill: white;
+}
+
+/*
+.Add    .item-icon { -fx-text-fill: orange; }
+.COPY   .item-icon { -fx-text-fill: orange; }
+.Delete .item-icon { -fx-text-fill: orange; }
+.Modify .item-icon { -fx-text-fill: orange; }
+.Rename .item-icon { -fx-text-fill: orange; }
+*/

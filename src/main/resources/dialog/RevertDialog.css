@@ -1,0 +1,43 @@
+.RevertDialog {
+    -fx-vgap: 4;
+}
+
+.PathColumn,
+.TypeColumn {
+    -fx-alignment: baseline-center;
+}
+
+RevertFileTable {
+    -fx-border-width: 1;
+    -fx-border-color: white;
+}
+
+.RevertFileTable {
+    -fx-selection-bar: -selected-color;
+    -fx-selection-bar-non-focused: -selected-color;
+}
+
+.table-row-cell:odd:filled {
+    -fx-control-inner-background: rgb(245, 245, 245);
+}
+.table-row-cell:even:filled {
+    -fx-control-inner-background: white;
+}
+
+.TypeColumn {
+    -fx-padding: 2 0 0 4;
+    -fx-alignment: baseline-left;
+}
+.TypeColumn .item-icon {
+    -fx-font-size: 1.3em;
+}
+.TypeColumn:selected .item-icon {
+    -fx-text-fill: white;
+}
+.PathColumn {
+    -fx-alignment: baseline-left;
+}
+
+.table-row-cell:selected .item-icon {
+    -fx-text-fill: white;
+}

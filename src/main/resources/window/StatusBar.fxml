@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+
+<HBox fx:id="statusBar" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+      AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" spacing="10" >
+    <Label fx:id="repositoryPath"/>
+</HBox>
