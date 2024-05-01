@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "org.progs"
-version = "0.1-SNAPSHOT"
+version = "0.1.0-SNAPSHOT"
 
 repositories {
     google()
@@ -28,6 +28,7 @@ dependencies {
 
     runtimeOnly("org.openjfx:javafx-graphics:$javafx.version:win")
     runtimeOnly("org.openjfx:javafx-graphics:$javafx.version:linux")
+    runtimeOnly("org.openjfx:javafx-graphics:$javafx.version:mac")
 }
 
 tasks.test {
