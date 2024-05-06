@@ -4,7 +4,7 @@ import javafx.scene.control.Alert
 import javafx.scene.control.Alert.AlertType
 import javafx.scene.control.ButtonType
 import javafx.scene.control.DialogPane
-import org.progs.gitview.ui.window.main.MainWindow
+import org.progs.gitview.ui.window.main.mainWindow
 
 fun createAlert(
     type: AlertType,
@@ -13,7 +13,7 @@ fun createAlert(
     headerText: String? = null,
     buttons: Array<ButtonType>
 ) = Alert(type).apply {
-        initOwner(MainWindow.rootWindow.scene.window)
+        initOwner(mainWindow.rootWindow.scene.window)
         setTitle(title)
         setHeaderText(headerText)
         dialogPane.contentText = message
@@ -30,7 +30,7 @@ fun createCustomAlert(
     customDialogPane: DialogPane
 ) = Alert(type).apply {
         val lastStyleClass = dialogPane.styleClass
-        initOwner(MainWindow.rootWindow.scene.window)
+        initOwner(mainWindow.rootWindow.scene.window)
         setTitle(title)
         setHeaderText(headerText)
         dialogPane = customDialogPane.apply {

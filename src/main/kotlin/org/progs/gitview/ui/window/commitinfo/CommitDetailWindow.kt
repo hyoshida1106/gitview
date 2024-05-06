@@ -12,8 +12,10 @@ import org.progs.gitview.ui.window.BaseControl
 import org.progs.gitview.ui.window.BaseWindow
 
 class CommitDetailWindow(
-    repositoryModel: RepositoryModel
-): BaseWindow<CommitDetailWindow.Control>(Control(repositoryModel)) {
+    control: Control
+) : BaseWindow<CommitDetailWindow.Control>(control) {
+
+    constructor(repositoryModel: RepositoryModel): this(Control(repositoryModel))
 
     class Control(
         private val repositoryModel: RepositoryModel
@@ -31,8 +33,8 @@ class CommitDetailWindow(
             set(value) { commitDetailSplit.setDividerPositions(value) }
 
         private val commitFileDiffPaneImpl = CommitFileDiffPane()
-        private val commitFileListPaneImpl = CommitFileListPane() { file ->
-            commitFileDiffPaneImpl.controller.updateContents(file) }
+        private val commitFileListPaneImpl = CommitFileListPane { file ->
+            commitFileDiffPaneImpl.updateContents(file) }
 
         /** 初期化 */
         fun initialize() {
@@ -63,7 +65,7 @@ class CommitDetailWindow(
         /** コミット選択変更時の表示変更 */
         private fun selectCommit(item: CommitInfoItem?) {
             commitDetailSplit.isVisible = (item != null)
-            commitFileListPaneImpl.controller.updateContents(item)
+            commitFileListPaneImpl.updateContents(item)
         }
     }
 }

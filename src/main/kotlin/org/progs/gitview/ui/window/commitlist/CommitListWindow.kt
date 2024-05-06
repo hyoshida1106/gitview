@@ -17,14 +17,20 @@ import org.progs.gitview.ui.window.BaseWindow
 import kotlin.math.max
 import kotlin.math.min
 
+interface CommitListWindowOperations {
+    /** 指定レコードへジャンプ */
+    fun jumpToIndex(index: Int)
+}
 
 class CommitListWindow(
-    repositoryModel: RepositoryModel
-): BaseWindow<CommitListWindow.Control>(Control(repositoryModel)) {
+    control: Control
+): BaseWindow<CommitListWindow.Control>(control), CommitListWindowOperations by control {
+
+    constructor(repositoryModel: RepositoryModel): this(Control(repositoryModel))
 
     class Control(
         private val repositoryModel: RepositoryModel
-    ) : BaseControl() {
+    ) : BaseControl(), CommitListWindowOperations {
         @FXML private lateinit var commitListTable: TableView<RowData<*>>
         @FXML private lateinit var treeColumn: TableColumn<RowData<*>, CellData>
         @FXML private lateinit var infoColumn: TableColumn<RowData<*>, CellData>
@@ -249,7 +255,7 @@ class CommitListWindow(
         }
 
         /** 指定レコードへジャンプ */
-        fun jumpToIndex(index: Int) {
+        override fun jumpToIndex(index: Int) {
             commitListTable.requestFocus()
             if(!isRowVisible(index)) {
                 commitListTable.scrollTo(index)

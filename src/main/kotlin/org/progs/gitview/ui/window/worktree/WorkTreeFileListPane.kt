@@ -23,9 +23,13 @@ import org.progs.gitview.ui.window.BaseWindow
 
 
 class WorkTreeFileListPane(
-    repositoryModel: RepositoryModel,
-    onFileSelect: (fileInfo: CommitFile?) -> Unit = { }
-): BaseWindow<WorkTreeFileListPane.Control>(Control(repositoryModel, onFileSelect)) {
+    control: Control
+): BaseWindow<WorkTreeFileListPane.Control>(control) {
+
+    constructor(
+        repositoryModel: RepositoryModel,
+        onFileSelect: (fileInfo: CommitFile?) -> Unit = { }
+    ): this(Control(repositoryModel, onFileSelect))
 
     class Control(
         private val repositoryModel: RepositoryModel,
@@ -116,9 +120,9 @@ class WorkTreeFileListPane(
 
             //ボタン押下時の処理
             stageButton.onAction = EventHandler { _ ->
-                workTreeOperations.stage( modifiedFilesTable.controller.selectedFiles) }
+                workTreeOperations.stage( modifiedFilesTable.selectedFiles) }
             unStageButton.onAction = EventHandler { _ ->
-                workTreeOperations.unStage(stagedFilesTable.controller.selectedFiles) }
+                workTreeOperations.unStage(stagedFilesTable.selectedFiles) }
         }
 
         /** 表示更新 */
@@ -149,15 +153,15 @@ class WorkTreeFileListPane(
                 cherryPickControlPane.children.clear()
             }
 
-            stagedFilesTable.controller.updateContents(files.stagedFiles)
-            modifiedFilesTable.controller.updateContents(files.modifiedFiles)
+            stagedFilesTable.updateContents(files.stagedFiles)
+            modifiedFilesTable.updateContents(files.modifiedFiles)
             updateButtonStatus()
         }
 
         /** ボタン有効/無効状態の変更 */
         private fun updateButtonStatus() {
-            unStageButton.isDisable = stagedFilesTable.controller.selectedFiles.isEmpty()
-            stageButton.isDisable = modifiedFilesTable.controller.selectedFiles.isEmpty()
+            unStageButton.isDisable = stagedFilesTable.selectedFiles.isEmpty()
+            stageButton.isDisable = modifiedFilesTable.selectedFiles.isEmpty()
         }
 
         /** 進行中のマージをキャンセルする */

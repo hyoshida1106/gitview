@@ -27,15 +27,24 @@ import org.progs.gitview.ui.window.main.SystemConfig
 import java.io.File
 
 
+interface ConflictingFileTablePaneOperations {
+    /** 表示更新 */
+    fun updateContents()
+}
+
 class ConflictingFileTablePane(
-    repositoryModel: RepositoryModel,
-    onSelectFile: (File?) -> Unit
-): BaseWindow<ConflictingFileTablePane.Control>(Control(repositoryModel, onSelectFile)) {
+    control: Control
+): BaseWindow<ConflictingFileTablePane.Control>(control), ConflictingFileTablePaneOperations by control {
+
+    constructor(
+        repositoryModel: RepositoryModel,
+        onSelectFile: (File?) -> Unit
+    ): this(Control(repositoryModel, onSelectFile))
 
     class Control(
         private val repositoryModel: RepositoryModel,
         private val onSelectFile: (File?) -> Unit
-    ) : BaseControl() {
+    ) : BaseControl(), ConflictingFileTablePaneOperations {
         @FXML private lateinit var mergeControlPane: AnchorPane
         @FXML private lateinit var cherryPickControlPane: AnchorPane
         @FXML private lateinit var conflictingFileTable: TableView<RowData>
@@ -150,7 +159,7 @@ class ConflictingFileTablePane(
         }
 
         /** 表示更新 */
-        fun updateContents() {
+        override fun updateContents() {
             //マージ状態の表示
             val mergeId = repositoryModel.mergeInProgress
             if(mergeId != null) {

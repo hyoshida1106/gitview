@@ -3,7 +3,7 @@ package org.progs.gitview.ui.dialog
 import javafx.scene.control.Alert
 import org.eclipse.jgit.errors.RepositoryNotFoundException
 import org.progs.gitview.MainApp.Companion.resourceBundle
-import org.progs.gitview.ui.window.main.MainWindow
+import org.progs.gitview.ui.window.main.mainWindow
 
 class ErrorDialog(
     val message: String?
@@ -20,7 +20,7 @@ class ErrorDialog(
     }
 
     override fun showDialog() {
-        initOwner(MainWindow.rootWindow.scene.window)
+        initOwner(mainWindow.rootWindow.scene.window)
         title = resourceBundle.getString("ErrorDialog.Title")
         contentText = message
         headerText = null

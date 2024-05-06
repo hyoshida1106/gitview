@@ -5,7 +5,7 @@ import org.progs.gitview.model.item.CommitInfoItem
 import org.progs.gitview.model.RepositoryModel
 import org.progs.gitview.ui.alert.PatchCompleteAlert
 import org.progs.gitview.ui.dialog.ErrorDialog
-import org.progs.gitview.ui.window.main.MainWindow
+import org.progs.gitview.ui.window.main.mainWindow
 import java.io.File
 
 class CommitOperations(
@@ -17,7 +17,7 @@ class CommitOperations(
     fun checkout(
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTaskWithProgress(
+        mainWindow.runTaskWithProgress(
             function = { monitor ->
                 model.checkout(monitor)
                 repositoryModel.branchListModel.updateLocalBranchList()
@@ -35,7 +35,7 @@ class CommitOperations(
         checkout: Boolean,
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTask(
+        mainWindow.runTask(
             function = {
                 model.createBranch(branchName, checkout)
                 repositoryModel.branchListModel.updateLocalBranchList()
@@ -52,7 +52,7 @@ class CommitOperations(
         message: String,
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTask(
+        mainWindow.runTask(
             function = {
                 model.merge(message)
                 repositoryModel.branchListModel.updateLocalBranchList()
@@ -70,7 +70,7 @@ class CommitOperations(
         message: String,
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTask(
+        mainWindow.runTask(
             function = {
                 model.createTag(tagName, message)
                 repositoryModel.branchListModel.updateTagList()
@@ -88,7 +88,7 @@ class CommitOperations(
     fun rebase(
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTask(
+        mainWindow.runTask(
             function = {
                 model.rebaseBranch()
                 repositoryModel.branchListModel.updateLocalBranchList()
@@ -105,7 +105,7 @@ class CommitOperations(
         option: ResetOption,
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTaskWithProgress(
+        mainWindow.runTaskWithProgress(
             function = { monitor ->
                 model.reset(option, monitor)
                 repositoryModel.branchListModel.updateLocalBranchList()
@@ -147,7 +147,7 @@ class CommitOperations(
         doCommit: Boolean,
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTask(
+        mainWindow.runTask(
             function = {
                 model.cherryPick(doCommit)
                 repositoryModel.branchListModel.updateLocalBranchList()

@@ -21,27 +21,42 @@ import org.progs.gitview.ui.window.conflictfile.ConflictingFilesWindow
 import org.progs.gitview.ui.window.worktree.WorkTreeDetailWindow
 
 
+interface MainWindowOperations {
+    val propWidth  : Double
+    val propHeight : Double
+    /**　指定されたレコードへジャンプ */
+    fun jumpCommitList(index: Int)
+}
+
+val mainWindow = MainWindow(RepositoryModel())
+
 /**
  * メインウィンドウ
  */
-object MainWindow: BaseWindow<MainWindow.Control>(Control(RepositoryModel())) {
+class MainWindow(
+    control: Control
+): BaseWindow<MainWindow.Control>(control), MainWindowOperations by control {
 
-    /** モーダル情報にアクセスするためのデータクラス */
-    private val modalInfoQueries = Database(MainApp.sqlDriver).mainWindowPropsQueries
-    private val props = modalInfoQueries.selectAll().executeAsOne()
-    val propWidth  get() = props.width.toDouble()
-    val propHeight get() = props.height.toDouble()
+    constructor(
+        repositoryModel: RepositoryModel
+    ): this(Control(repositoryModel))
 
     //コントローラ
     class Control(
         private val repositoryModel: RepositoryModel
-    ): BaseControl() {
+    ): BaseControl(), MainWindowOperations {
         @FXML private lateinit var mainSplit: SplitPane
         @FXML private lateinit var menuBar: AnchorPane
         @FXML private lateinit var branchList: AnchorPane
         @FXML private lateinit var commitList: AnchorPane
         @FXML private lateinit var commitInfo: AnchorPane
         @FXML private lateinit var statusBar: AnchorPane
+
+        /** モーダル情報にアクセスするためのデータクラス */
+        private val modalInfoQueries = Database(MainApp.sqlDriver).mainWindowPropsQueries
+        private val props = modalInfoQueries.selectAll().executeAsOne()
+        override val propWidth  get() = props.width.toDouble()
+        override val propHeight get() = props.height.toDouble()
 
         private val branchListWindow = BranchListWindow(repositoryModel)
         private val commitListWindow = CommitListWindow(repositoryModel)
@@ -69,7 +84,7 @@ object MainWindow: BaseWindow<MainWindow.Control>(Control(RepositoryModel())) {
             mainSplit.setDividerPositions(props.split1, props.split2)
 
             //クローズ時処理を定義する
-            rootWindow.scene.window.setOnCloseRequest {
+            mainWindow.rootWindow.scene.window.setOnCloseRequest {
                 MainApp.confirmToQuit()
                 it.consume()
             }
@@ -78,7 +93,7 @@ object MainWindow: BaseWindow<MainWindow.Control>(Control(RepositoryModel())) {
         /** アイドル時処理 */
         override fun enterIdleState() {
             //ウィンドウのサイズと分割位置をデータベースに保存する
-            val stage: Stage = rootWindow.scene.window as Stage
+            val stage: Stage = mainWindow.rootWindow.scene.window as Stage
             val width = if(stage.isMaximized) -1 else stage.scene.width.toLong()
             val height = if(stage.isMaximized) -1 else stage.scene.height.toLong()
             modalInfoQueries.updateWindowSize(
@@ -89,8 +104,8 @@ object MainWindow: BaseWindow<MainWindow.Control>(Control(RepositoryModel())) {
         }
 
         /**　指定されたレコードへジャンプ */
-        fun jumpCommitList(index: Int) {
-            commitListWindow.controller.jumpToIndex(index)
+        override fun jumpCommitList(index: Int) {
+            commitListWindow.jumpToIndex(index)
         }
 
     }
@@ -130,25 +145,12 @@ object MainWindow: BaseWindow<MainWindow.Control>(Control(RepositoryModel())) {
         )
     }
 
-    /** 実行中マスク表示付きで処理を行う */
-//        fun runTaskWithMasker(
-//            function: () -> Unit,
-//            onError: (Exception) -> Unit
-//        ) {
-//            runTaskInternal(
-//                function,
-//                { masker.isVisible = true  },
-//                { masker.isVisible = false },
-//                onError
-//            )
-//        }
-
     /** プログレスバー表示付きで処理を行う */
     fun runTaskWithProgress(
         function: (ProgressMonitorImpl) -> Unit,
         onError: (Exception) -> Unit
     ) {
-        val scene = MainWindow.rootWindow.scene
+        val scene = mainWindow.rootWindow.scene
         val window = ProgressWindow()
         runTaskInternal(
             { function(window.monitor) },

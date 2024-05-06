@@ -10,10 +10,14 @@ import org.progs.gitview.ui.window.BaseControl
 import org.progs.gitview.ui.window.BaseWindow
 
 class WorkTreeMessagePane(
-    message: String,
-    id: Id,
-    onRevert: () -> Unit
-): BaseWindow<WorkTreeMessagePane.Control>(Control(message, id, onRevert)) {
+    control: Control
+): BaseWindow<WorkTreeMessagePane.Control>(control) {
+
+    constructor(
+        message: String,
+        id: Id,
+        onRevert: () -> Unit
+    ): this(Control(message, id, onRevert))
 
     class Control(
         private val message: String,

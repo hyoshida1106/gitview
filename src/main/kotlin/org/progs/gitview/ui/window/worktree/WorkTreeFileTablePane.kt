@@ -17,14 +17,24 @@ import org.progs.gitview.ui.window.BaseControl
 import org.progs.gitview.ui.window.BaseWindow
 
 
+interface WorkTreeFileTablePaneOperations {
+    /** 選択ファイル */
+    val selectedFiles:List<CommitFile>
+    /** 表示データ設定 */
+    fun updateContents(files: List<CommitFile>)
+}
+
 class WorkTreeFileTablePane(
-    title: String,
-    actionIconCode: Int?,
-    actionName: String,
-    actionCb: (List<CommitFile>, List<Int>) -> Unit,
-    onFileSelect: (fileInfo: CommitFile?) -> Unit
-): BaseWindow<WorkTreeFileTablePane.Control>(
-    Control(title, actionIconCode, actionName, actionCb, onFileSelect)) {
+    control: Control
+): BaseWindow<WorkTreeFileTablePane.Control>(control), WorkTreeFileTablePaneOperations by control {
+
+    constructor(
+        title: String,
+        actionIconCode: Int?,
+        actionName: String,
+        actionCb: (List<CommitFile>, List<Int>) -> Unit,
+        onFileSelect: (fileInfo: CommitFile?) -> Unit
+    ): this(Control(title, actionIconCode, actionName, actionCb, onFileSelect))
 
     /** 表示行データ */
     class RowData(
@@ -40,7 +50,7 @@ class WorkTreeFileTablePane(
         action: String,
         private val actionCb: (List<CommitFile>, List<Int>) -> Unit,
         private val onFileSelect: (fileInfo: CommitFile?) -> Unit
-    ): BaseControl() {
+    ): BaseControl(), WorkTreeFileTablePaneOperations {
         @FXML private lateinit var fileTable: TableView<RowData>
         @FXML private lateinit var typeColumn: TableColumn<RowData, Node>
         @FXML private lateinit var pathColumn: TableColumn<RowData, String>
@@ -53,7 +63,7 @@ class WorkTreeFileTablePane(
         }
 
         /** 選択ファイル */
-        val selectedFiles:List<CommitFile>
+        override val selectedFiles:List<CommitFile>
             get() = fileTable.selectionModel.selectedItems.map { item -> item.file }
 
         /** テーブルのカラム幅を調整する処理クラス */
@@ -103,7 +113,7 @@ class WorkTreeFileTablePane(
         }
 
         /** 表示データ設定 */
-        fun updateContents(
+        override fun updateContents(
             files: List<CommitFile>
         ) {
             fileTable.selectionModel.clearSelection()

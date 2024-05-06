@@ -9,7 +9,7 @@ import org.progs.gitview.ui.dialog.CommitDialog
 import org.progs.gitview.ui.dialog.ErrorDialog
 import org.progs.gitview.ui.dialog.RevertDialog
 import org.progs.gitview.ui.dialog.UserNameDialog
-import org.progs.gitview.ui.window.main.MainWindow
+import org.progs.gitview.ui.window.main.mainWindow
 
 class WorkTreeOperations(
     private val repositoryModel: RepositoryModel,
@@ -19,7 +19,7 @@ class WorkTreeOperations(
         files: List<CommitFile>,
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTask(
+        mainWindow.runTask(
             function = {
                 val fileToAdd = files.filter {
                     arrayOf(
@@ -47,7 +47,7 @@ class WorkTreeOperations(
         files: List<CommitFile>,
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTask(
+        mainWindow.runTask(
             function = {
                 repositoryModel.unStage(files)
                 repositoryModel.commitListModel.updateWorkTreeFiles()
@@ -79,7 +79,7 @@ class WorkTreeOperations(
         val dialog = CommitDialog(files, selectedIndices, repositoryModel.mergeMessage)
         if(dialog.showDialog() == ButtonType.OK) {
             val message = dialog.message
-            MainWindow.runTask(
+            mainWindow.runTask(
                 function = {
                     repositoryModel.commit(userName, mailAddr, message, dialog.controller.selectedFiles)
                     repositoryModel.branchListModel.updateLocalBranchList()
@@ -105,7 +105,7 @@ class WorkTreeOperations(
         val selectedFiles = dialog.controller.selectedFiles
 
         if(RevertFilesConfirm(selectedFiles.map { it.path }).showDialog()) {
-            MainWindow.runTask(
+            mainWindow.runTask(
                 function = {
                     repositoryModel.checkout(selectedFiles)
                     repositoryModel.commitListModel.updateWorkTreeFiles()

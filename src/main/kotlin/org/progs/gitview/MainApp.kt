@@ -12,7 +12,7 @@ import org.progs.gitview.ui.alert.confirm
 import org.progs.gitview.ui.util.IdleTimer
 import org.progs.gitview.ui.util.myLogger
 import org.progs.gitview.ui.window.BaseControl
-import org.progs.gitview.ui.window.main.MainWindow
+import org.progs.gitview.ui.window.main.mainWindow
 import java.io.File
 import java.lang.System.getProperty
 import java.util.*
@@ -27,6 +27,8 @@ import kotlin.system.exitProcess
 class MainApp : Application() {
 
     companion object {
+        var instance: MainApp? = null
+
         /** データベースを格納するディレクトリ名称 */
         private val DATABASE_DIR = getProperty("user.home") + "/.gitview/"
 
@@ -60,11 +62,13 @@ class MainApp : Application() {
     override fun start(stage: Stage) {
         myLogger(this).info("start")
 
+        instance = this
+
         try {
-            if(MainWindow.propWidth > 0.0) {
-                stage.scene = Scene(MainWindow.rootWindow, MainWindow.propWidth, MainWindow.propHeight)
+            if(mainWindow.propWidth > 0.0) {
+                stage.scene = Scene(mainWindow.rootWindow, mainWindow.propWidth, mainWindow.propHeight)
             } else {
-                stage.scene = Scene(MainWindow.rootWindow)
+                stage.scene = Scene(mainWindow.rootWindow)
                 stage.isMaximized = true
             }
             stage.title = "GitView"

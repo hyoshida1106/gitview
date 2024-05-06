@@ -22,9 +22,16 @@ import org.progs.gitview.ui.window.BaseWindow
 import org.progs.gitview.ui.window.commitlist.CommitLabelList
 
 
+interface CommitFileListPaneOperations {
+    /** コミット選択変更時の表示変更 */
+    fun updateContents(model: CommitInfoItem?)
+}
+
 class CommitFileListPane(
-    onFileSelect: (fileInfo: CommitFile?) -> Unit
-): BaseWindow<CommitFileListPane.Control>(Control(onFileSelect))  {
+    control: Control
+): BaseWindow<CommitFileListPane.Control>(control), CommitFileListPaneOperations by control {
+
+    constructor(onFileSelect: (fileInfo: CommitFile?) -> Unit) : this(Control(onFileSelect))
 
     /** 行表示データクラス */
     data class RowData(val file: CommitFile) {
@@ -34,7 +41,7 @@ class CommitFileListPane(
 
     class Control(
         private val onFileSelect: (fileInfo: CommitFile?) -> Unit
-    ) : BaseControl() {
+    ) : BaseControl(), CommitFileListPaneOperations {
         @FXML private lateinit var commitFileListSplit: SplitPane
         @FXML private lateinit var commitProps: VBox
         @FXML private lateinit var commitMessage: TextArea
@@ -102,7 +109,7 @@ class CommitFileListPane(
         }
 
         /** コミット選択変更時の表示変更 */
-        fun updateContents(model: CommitInfoItem?) {
+        override fun updateContents(model: CommitInfoItem?) {
             updateCommitProps(model)
             updateCommitFileList(model)
         }

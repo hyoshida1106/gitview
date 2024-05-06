@@ -11,9 +11,19 @@ import org.progs.gitview.ui.window.conflictfile.ConflictingFileListPane.Control.
 import java.io.File
 
 
-class ConflictingFileListPane : BaseWindow<ConflictingFileListPane.Control>(Control()) {
+interface ConflictingFileListPaneOperations{
+    /** 表示更新 */
+    fun updateContents(file: File?)
+}
 
-    class Control : BaseControl() {
+
+class ConflictingFileListPane(
+    control: Control
+) : BaseWindow<ConflictingFileListPane.Control>(control), ConflictingFileListPaneOperations by control {
+
+    constructor(): this(Control())
+
+    class Control : BaseControl(), ConflictingFileListPaneOperations {
         @FXML private lateinit var conflictingFileList: TableView<RowData>
         @FXML private lateinit var lineColumn: TableColumn<RowData, String>
         @FXML private lateinit var textColumn: TableColumn<RowData, String>
@@ -68,7 +78,7 @@ class ConflictingFileListPane : BaseWindow<ConflictingFileListPane.Control>(Cont
         }
 
         /** 表示更新 */
-        fun updateContents(
+        override fun updateContents(
             file: File?
         ) {
             if(file != null) {

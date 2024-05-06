@@ -4,7 +4,7 @@ import org.progs.gitview.model.RepositoryModel
 import org.progs.gitview.model.TagModel
 import org.progs.gitview.ui.alert.TagOutOfRangeAlert
 import org.progs.gitview.ui.dialog.ErrorDialog
-import org.progs.gitview.ui.window.main.MainWindow
+import org.progs.gitview.ui.window.main.mainWindow
 
 class TagOperations(
     private val repositoryModel: RepositoryModel,
@@ -14,7 +14,7 @@ class TagOperations(
     fun remove(
         onError: () -> Unit = {}
     ) {
-            MainWindow.runTask(
+            mainWindow.runTask(
                 function = {
                     model.remove()
                     repositoryModel.branchListModel.updateTagList()
@@ -35,7 +35,7 @@ class TagOperations(
                 //先頭がWorkTree行なら１増やす
                 index += 1
             }
-            MainWindow.controller.jumpCommitList(index)
+            mainWindow.jumpCommitList(index)
         } else {
             TagOutOfRangeAlert(model.name).show()
         }

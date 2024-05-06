@@ -15,8 +15,12 @@ import org.progs.gitview.ui.window.BaseWindow
 import org.progs.gitview.ui.window.commitinfo.CommitFileDiffPane
 
 class WorkTreeDetailWindow(
-    repositoryModel: RepositoryModel
-): BaseWindow<WorkTreeDetailWindow.Control>(Control(repositoryModel)) {
+    control: Control
+): BaseWindow<WorkTreeDetailWindow.Control>(control) {
+
+    constructor(
+        repositoryModel: RepositoryModel
+    ): this(Control(repositoryModel))
 
     class Control(
         private val repositoryModel: RepositoryModel
@@ -42,7 +46,7 @@ class WorkTreeDetailWindow(
          */
         private val workTreeFileDiffPaneImpl = CommitFileDiffPane()
         private val workTreeFileListPaneImpl = WorkTreeFileListPane(repositoryModel){ file ->
-            workTreeFileDiffPaneImpl.controller.updateContents(file)
+            workTreeFileDiffPaneImpl.updateContents(file)
         }
 
         /**

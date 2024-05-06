@@ -3,7 +3,7 @@ package org.progs.gitview.ui.menu
 import org.progs.gitview.model.LocalBranchModel
 import org.progs.gitview.model.RepositoryModel
 import org.progs.gitview.ui.dialog.ErrorDialog
-import org.progs.gitview.ui.window.main.MainWindow
+import org.progs.gitview.ui.window.main.mainWindow
 
 class LocalBranchOperations(
     private val model: LocalBranchModel
@@ -13,7 +13,7 @@ class LocalBranchOperations(
     fun checkout(
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTaskWithProgress(
+        mainWindow.runTaskWithProgress(
             function = { monitor ->
                 model.checkoutFromRemote(monitor)
                 model.updateLocalBranchList()
@@ -30,7 +30,7 @@ class LocalBranchOperations(
         message: String,
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTaskWithProgress(
+        mainWindow.runTaskWithProgress(
             function = { monitor ->
                 model.mergeToCurrentBranch(message, monitor)
                 model.updateLocalBranchList()
@@ -48,7 +48,7 @@ class LocalBranchOperations(
         checkout: Boolean,
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTask(
+        mainWindow.runTask(
             function = {
                 model.createNewBranch(branchName, checkout)
                 model.updateLocalBranchList()
@@ -64,7 +64,7 @@ class LocalBranchOperations(
     fun rebase(
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTask(
+        mainWindow.runTask(
             function = {
                 model.rebaseCurrentBranch()
                 model.updateLocalBranchList()
@@ -80,7 +80,7 @@ class LocalBranchOperations(
     fun push(
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTask(
+        mainWindow.runTask(
             function = {
                 model.push(false)    // Push all tags
                 model.updateRemoteBranchList()
@@ -96,7 +96,7 @@ class LocalBranchOperations(
     fun pull(
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTaskWithProgress(
+        mainWindow.runTaskWithProgress(
             function = { monitor ->
                 model.pull(monitor)
                 model.updateLocalBranchList()
@@ -113,7 +113,7 @@ class LocalBranchOperations(
         force: Boolean,
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTaskWithProgress(
+        mainWindow.runTaskWithProgress(
             function = { monitor ->
                 model.remove(force, monitor)
                 model.updateLocalBranchList()
@@ -130,7 +130,7 @@ class LocalBranchOperations(
         newName: String,
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTask(
+        mainWindow.runTask(
             function = {
                 model.rename(newName)
                 model.updateLocalBranchList()
@@ -149,7 +149,7 @@ class LocalBranchOperations(
             repositoryModel: RepositoryModel,
             onError: () -> Unit = {}
         ) {
-            MainWindow.runTaskWithProgress(
+            mainWindow.runTaskWithProgress(
                 function = { monitor ->
                     repositoryModel.abortMerge(monitor)
                     repositoryModel.branchListModel.updateLocalBranchList()
@@ -166,7 +166,7 @@ class LocalBranchOperations(
             repositoryModel: RepositoryModel,
             onError: () -> Unit = {}
         ) {
-            MainWindow.runTaskWithProgress(
+            mainWindow.runTaskWithProgress(
                 function = { monitor ->
                     repositoryModel.abortCherryPick(monitor)
                     repositoryModel.branchListModel.updateLocalBranchList()

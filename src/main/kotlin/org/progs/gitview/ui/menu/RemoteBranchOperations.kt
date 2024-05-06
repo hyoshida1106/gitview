@@ -2,7 +2,7 @@ package org.progs.gitview.ui.menu
 
 import org.progs.gitview.model.RemoteBranchModel
 import org.progs.gitview.ui.dialog.ErrorDialog
-import org.progs.gitview.ui.window.main.MainWindow
+import org.progs.gitview.ui.window.main.mainWindow
 
 class RemoteBranchOperations(
     private val model: RemoteBranchModel
@@ -14,7 +14,7 @@ class RemoteBranchOperations(
     fun checkout(
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTaskWithProgress(
+        mainWindow.runTaskWithProgress(
             function = { monitor ->
                 model.checkoutToLocal(monitor)
                 model.updateLocalBranchList()
@@ -32,7 +32,7 @@ class RemoteBranchOperations(
     fun remove(
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTaskWithProgress(
+        mainWindow.runTaskWithProgress(
             function = { monitor ->
                 model.remove(monitor)
                 model.updateRemoteBranchList()

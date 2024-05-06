@@ -13,8 +13,10 @@ import org.progs.gitview.ui.window.BaseWindow
 
 
 class ConflictingFilesWindow(
-    repositoryModel: RepositoryModel
-): BaseWindow<ConflictingFilesWindow.Control>(Control(repositoryModel)) {
+    control: Control
+): BaseWindow<ConflictingFilesWindow.Control>(control) {
+
+    constructor(repositoryModel: RepositoryModel): this(Control(repositoryModel))
 
     class Control(
         private val repositoryModel: RepositoryModel
@@ -34,7 +36,7 @@ class ConflictingFilesWindow(
 
         /** ファイル一覧 */
         private val conflictingFileTablePaneImpl = ConflictingFileTablePane(repositoryModel) { file ->
-            conflictingFileListPaneImpl.controller.updateContents(file) }
+            conflictingFileListPaneImpl.updateContents(file) }
 
         /** ファイルリスト */
         private val conflictingFileListPaneImpl = ConflictingFileListPane()
@@ -68,7 +70,7 @@ class ConflictingFilesWindow(
         /** コミット選択変更時の表示変更 */
         private fun selectCommit(item: WorkTreeItem?) {
             conflictingFilesSplit.isVisible = (item?.isConflicting == true)
-            conflictingFileTablePaneImpl.controller.updateContents()
+            conflictingFileTablePaneImpl.updateContents()
         }
     }
 }

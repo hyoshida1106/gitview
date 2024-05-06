@@ -10,9 +10,21 @@ import org.progs.gitview.ui.window.BaseControl
 import org.progs.gitview.ui.window.BaseWindow
 
 
-class CommitFileDiffPane: BaseWindow<CommitFileDiffPane.Control>(Control()) {
+interface CommitFileDiffPaneOperations {
+    /**
+     * 表示更新
+     */
+    fun updateContents(model: CommitFile?)
+}
 
-    class Control: BaseControl() {
+
+class CommitFileDiffPane(
+    control: Control
+): BaseWindow<CommitFileDiffPane.Control>(control), CommitFileDiffPaneOperations by control {
+
+    constructor() : this(Control())
+
+    class Control: BaseControl(), CommitFileDiffPaneOperations {
         @FXML private lateinit var commitFileDiffTable: TableView<RowData>
         @FXML private lateinit var line1Column: TableColumn<RowData, String?>
         @FXML private lateinit var line2Column: TableColumn<RowData, String?>
@@ -107,7 +119,7 @@ class CommitFileDiffPane: BaseWindow<CommitFileDiffPane.Control>(Control()) {
         /**
          * 表示更新
          */
-        fun updateContents(
+        override fun updateContents(
             model: CommitFile?
         ) {
             val rowDataList = mutableListOf<RowData>()

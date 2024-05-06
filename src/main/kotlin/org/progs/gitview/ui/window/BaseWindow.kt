@@ -8,7 +8,7 @@ import org.progs.gitview.MainApp
  * Window基本クラス
  */
 open class BaseWindow<Controller>(
-    val controller: Controller
+    controller: Controller,
 ) where Controller: BaseControl {
 
     /**

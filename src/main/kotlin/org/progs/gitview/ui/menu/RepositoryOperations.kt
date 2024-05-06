@@ -2,7 +2,7 @@ package org.progs.gitview.ui.menu
 
 import org.progs.gitview.model.RepositoryModel
 import org.progs.gitview.ui.dialog.ErrorDialog
-import org.progs.gitview.ui.window.main.MainWindow
+import org.progs.gitview.ui.window.main.mainWindow
 
 
 class RepositoryOperations(
@@ -14,7 +14,7 @@ class RepositoryOperations(
         filePath: String,
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTask(
+        mainWindow.runTask(
             function = {
                 repositoryModel.open(filePath)
             },
@@ -30,7 +30,7 @@ class RepositoryOperations(
         filePath: String,
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTask(
+        mainWindow.runTask(
             function = {
                 repositoryModel.create(filePath)
             },
@@ -48,7 +48,7 @@ class RepositoryOperations(
         isBare: Boolean,
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTaskWithProgress(
+        mainWindow.runTaskWithProgress(
             function = { monitor ->
                 repositoryModel.clone(monitor, localPath, remotePath, isBare)
             },
@@ -63,7 +63,7 @@ class RepositoryOperations(
     fun fetch(
         onError: () -> Unit = {}
     ) {
-        MainWindow.runTaskWithProgress(
+        mainWindow.runTaskWithProgress(
             function = { monitor ->
                 repositoryModel.fetch(monitor)
             },
