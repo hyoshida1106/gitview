@@ -1,31 +1,35 @@
 # GitView
 
-GitViewはkotlin+JavaFXで記述されたGit GUIクライアントツールです。
+GitView is a Git GUI client tool written in kotlin+JavaFX.
+
 
 ![img.png](img.png)
 
-### 特徴
+### Features
 
-* すべて[Kotlin](https://kotlinlang.org/)で記述されています
-* GUIに[JavaFX(OpenJfx)](https://openjfx.io/)、Gitライブラリとして[JGit](https://github.com/eclipse-jgit/jgit)を使用しています
-* JVM上で動作するため、実行環境を選ばず動作します(そのはずです)。
+* Written entirely in [Kotlin](https://kotlinlang.org/)
+* Uses [JavaFX(OpenJfx)](https://openjfx.io/) for GUI and [JGit](https://github.com/eclipse-jgit/jgit) as Git library
+* Runs on JVM, so it can run in any environment (it should).
 
-### 動作条件
+### Operating conditions
 
-JDK21を使用して開発しています。実行にはJava21の使用可能な環境を用意してください。
+Developed using JDK21. Please prepare an environment where Java21 is available for execution.
+
 ![img_1.png](img_1.png)
-開発はWindows上で、[Microsoft Build of OpenJDK](https://learn.microsoft.com/ja-jp/java/openjdk/)を使用して行っています。  
-LinuxとMacでも同等の環境を用意すれば動作すると思います(Linuxのみ確認済)。
 
-### 実行方法
+The program is developed on Windows using [Microsoft Build of OpenJDK](https://learn.microsoft.com/ja-jp/java/openjdk/).
+So, it should work on Linux and Mac if you prepare the same environment
+(only Linux has been confirmed, although).
 
-1. 公開されているZipファイルを適当な場所に展開します。
-2. binディレクトリ下にある *gitview.bat*(Windows)または*gitview*(他)を実行してください。
-3. 空白のウィンドウが開くので、リポジトリの「新規作成」「クローン」などを行います。クローンの取得元はURLで指定してください。
+### How to run
 
-### 注意点など
+1. Extract the published Zip file to a suitable location.
+2. Run *gitview.bat* (Windows) or *gitview* (other) under the bin directory.
+3. A blank window will open, so you can "create" or "clone" the repository. Specify the source of the clone by URL.
 
-* 仕事に使う人はいないと思いますが、「重要なリポジトリは操作しないこと」と警告させて頂きます。
-* プログラム的に面白いと思って頂ける方、興味をお持ちの方はご連絡ください。
+### Notes, etc.
 
-以上
+* I don't think anyone will use this for work, but I would like to warn you not to operate important repositories.
+* If you think it is interesting from a programming perspective or are interested, please contact me.
+
+Thank you.
