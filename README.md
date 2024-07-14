@@ -18,7 +18,7 @@ Developed using JDK21. Please prepare an environment where Java21 is available f
 ![img_1.png](img_1.png)
 
 The program is developed on Windows using [Microsoft Build of OpenJDK](https://learn.microsoft.com/ja-jp/java/openjdk/).
-So, it should work on Linux and Mac if you prepare the same environment
+It should work on Linux and Mac if you prepare the same environment
 (only Linux has been confirmed, although).
 
 ### How to run
@@ -30,6 +30,6 @@ So, it should work on Linux and Mac if you prepare the same environment
 ### Notes, etc.
 
 * I don't think anyone will use this for work, but I would like to warn you not to operate important repositories.
-* If you think it is interesting from a programming perspective or are interested, please contact me.
+* If you think it is interesting from a programming perspective or other, please contact me.
 
 Thank you.
