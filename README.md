@@ -3,7 +3,7 @@
 GitView is a Git GUI client tool written in kotlin+JavaFX.
 
 
-![img.png](img.png)
+![img_en.png](img_en.png)
 
 ### Features
 
