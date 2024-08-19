@@ -13,7 +13,7 @@ GitView is a Git GUI client tool written in kotlin+JavaFX.
 
 ### Operating conditions
 
-Developed using JDK21. Please prepare an environment where Java21 is available for execution.
+The program was eveloped using JDK21. Please prepare an environment where Java21 is available for execution.
 
 ![img_1.png](img_1.png)
 
